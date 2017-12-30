@@ -44,7 +44,7 @@ namespace Bookss
 
         public static Book GetBestBook(this IPersistense<Author> authors, string name)
         {
-            return authors.GetAll().ToList<Author>().First(a => a.Name.Contains(name)).Books.OrderByDescending(b => b.Rating).ElementAt(1);
+            return authors.GetAll().ToList<Author>().First(a => a.Name.Contains(name)).Books.OrderByDescending(b => b.Rating).First();
         }
 
         public static ISessionFactory CreateSessionFactory()

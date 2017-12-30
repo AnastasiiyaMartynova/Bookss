@@ -19,17 +19,19 @@ namespace Bookss
         static void Main()
         {
             List<Book> books = new List<Book>();
-            var book1 = new Book() { Title = "Voina i mir", Rating = 7.8 };
-            var book2 = new Book() { Title = "Anna Karenina", Rating = 7.7 };
-            var author1 = new Author { Name = "L.N. Tolstoy", Books = new[] { book1, book2 } };
+            var book1 = new Book() { Title = "Voina i mir", Rating = 8 };
+            var book2 = new Book() { Title = "Anna Karenina", Rating = 9 };
             var book3 = new Book() { Title = "Onegin", Rating = 9 };
             var author3 = new Author { Name = "A.S.Pushkin", Books = new[] { book3 } };
+            var book4 = new Book() { Title = "Detstvo", Rating = 7 };
+            var author1 = new Author { Name = "L.N. Tolstoy", Books = new[] { book1, book2, book4 } };
 
             var persistense = GetPersistense<Author>();
             persistense.Add(author1);
             persistense.Add(author3);
             //var all = persistense.GetAll();
             Console.WriteLine(Util.GetBestBook(persistense, "L.N. Tolstoy").Title);
+            Console.ReadKey();
             /*var persistense_b = GetPersistense<Book>();
             persistense_b.Add(book1);
             persistense_b.Add(book3);
